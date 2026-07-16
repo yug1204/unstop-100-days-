@@ -1,0 +1,29 @@
+def good_sum(N, A):
+    stack = []
+    for x in A:
+        if x >= 0:
+            stack.append(x)
+        else:
+            target = abs(x)
+            current_sum = 0
+            while stack and current_sum < target:
+                current_sum += stack.pop()
+            stack.append(target)
+    return sum(stack)
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().strip().split()
+    if not data:
+        return
+    
+    N = int(data[0])
+    # Strictly take exactly N elements to avoid pollution from extra tokens
+    A = list(map(int, data[1:N+1]))
+    
+    result = good_sum(N, A)
+    print(result)
+
+if __name__ == "__main__":
+    main()
