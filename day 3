@@ -32,4 +32,21 @@ def solve():
     print('\n'.join(out))
 
 if __name__ == "__main__":
-    solve()
+    solve()def user_logic(ops):
+    '''
+    Write your logic here.
+    Parameters:
+        ops (list of str): List of operations as strings
+    Returns:
+        int: Computed result based on the problem statement
+    '''
+    return 0  # Placeholder return statement
+
+if __name__ == "__main__":
+    n = int(input())  # Input for number of operations
+    ops = [input().strip() for _ in range(n)]
+    
+    # Call user logic function and print the output
+    result = user_logic(ops)
+    print(result)
+
