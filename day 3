@@ -1,0 +1,35 @@
+import sys 
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+
+    t = int(input_data[0])
+    idx = 1
+    out = []
+    
+    for _ in range(t):  # Sahi kiya: space lagaya 'for' ke baad
+        n = int(input_data[idx])
+        s = input_data[idx+1]
+        idx += 2
+
+        blocks = s.split('W')
+        possible = True 
+        
+        for block in blocks:
+            if len(block) > 0:
+                if ('R' in block and 'B' not in block) or ('B' in block and 'R' not in block):
+                    possible = False
+                    break
+
+        if possible:
+            out.append("YES")
+        else:  # Sahi kiya: alignment theek ki aur "NO" capital kiya
+            out.append("NO")
+
+    # Sahi kiya: print ko loop ke bahar kar diya taaki aakhiri me ek saath output aaye
+    print('\n'.join(out))
+
+if __name__ == "__main__":
+    solve()
